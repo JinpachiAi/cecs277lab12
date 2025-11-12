@@ -1,8 +1,21 @@
 from plate_decorator import PlateDecorator
 
 class Stuffing(PlateDecorator):
+    """
+    Attributes:
+        PlateDecorator: The base plate decorator class to extend.
+    Returns:
+        description(str): description of the plate plus the food item.
+        area(int): modified area of the plate
+        weight(int): modified weight of the plate
+        count(int): modified count of food items on the plate
+    """
+    
     def description(self):
-        return super().description() + " + stuffing"
+        if super().count() == 0:
+            return super().description() + " with stuffing"
+        else:
+            return super().description() + " and stuffing"
 
     def area(self):
         return super().area() - 18
